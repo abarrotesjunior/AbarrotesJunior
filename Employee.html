@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Inventory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>PRODUCTOS</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tblItems" class="table table-bordered" border="1">
+                    <thead>
+                        <tr>
+                            <th>ID PRODUCTO</th>
+                            <th>NOMBRE PRODUCTO</th>
+                            <th>CANTIDAD EN STOCK</th>
+                            <th>CANTIDAD EXISTENTE</th>
+                            <th>PRECIO</th>
+                            <th>MARCA</th>
+                            <th>ELIMINAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/popper.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootbox.js"></script>
+
+    <script>
+
+        var init = function () {
+            MostrarProductos();
+        }
+
+        init();
+
+        function MostrarProductos() {
+            sendRequest('MostrarProductos', {}, function (response) {
+                var tableBody = $('#tblItems tbody');
+                tableBody.html('');
+                for (var Producto in response) {
+                    tableBody.append('<tr>' +
+                        '<td>' + response[Producto].IdProduct + '</td>' +
+                        '<td>' + response[Producto].Nombre_Producto + '</td>' +
+                        '<td>' + response[Producto].Cantidad_Existente + '</td>' +
+                        '<td>' + response[Producto].Cantida_Por_Producto + '</td>' +
+                        '<td>' + response[Producto].Precio + '</td>' +
+                        '<td>' + response[Producto].Marca + '</td>' +
+
+                        '<td><button class="btn btn-primary" onclick="actualizar(this);">Update</button></td>');
+                }
+            });
+        }
+
+        function actualizar(itemControl) {
+            var productid = $(itemControl).parent().parent().find('td').eq(0).html();
+            var Cantidad_Exist = $(itemControl).parent().parent().find('td').eq(1).html();
+            bootbox.dialog({
+                title: "Update Item",
+                message: '<div class="row">  ' +
+                    '<div class="col-md-12"> ' +
+                    '<div class="form-group"> ' +
+                    '<label class="col-md-3 control-label" for="txID">Ingrese Cantidad En Existencia:</label> ' +
+                    '<div class="col-md-9"> ' +
+                    '<input type="text" id="txID" class="form-control" placeholder="Cantidad" value="" />' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>',
+                buttons: {
+                    No: {
+                        label: "No",
+                        className: "btn-danger",
+                        callback: function () {
+
+                        }
+                    },
+                    Si: {
+                        label: "Si",
+                        className: "btn-success",
+                        callback: function () {
+
+                        }
+                    }
+                }
+            });
+        }
+
+        function sendRequest(webMethod, JSONToSend, callback) {
+            try {
+                var xhttp = null;
+                if (window.XMLHttpRequest) {
+                    xhttp = new XMLHttpRequest();
+                } else {
+                    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            callback(JSON.parse(xhttp.responseText).d);
+                        }
+                        else {
+                            callback("Error de Red!");
+                        }
+                    }
+                };
+                xhttp.open("POST", "/Inventory/WebService.asmx/" + webMethod, true);
+                xhttp.setRequestHeader("content-type", "application/json");
+                xhttp.setRequestHeader("Accept", "application/json");
+                xhttp.send(JSON.stringify(JSONToSend));
+            } catch (e) {
+                alert('Error Message: ' + e);
+            }
+        }
+    </script>
+</body>
+</html>

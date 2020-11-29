@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, Ample lite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Ample admin lite dashboard bootstrap 4 dashboard template">
+    <meta name="description"
+          content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Abarrotes "Junior"</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                            <!-- dark Logo text -->
+                            <img src="plugins/images/logo-light-text2.jpg" alt="homepage" />
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                       href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    <ul class="navbar-nav d-none d-md-block d-lg-none">
+                        <li class="nav-item">
+                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
+                               href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav ml-auto d-flex align-items-center">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li>
+                            <a class="profile-pic" href="#">
+                                <img src="plugins/images/users/varom.jpg" alt="user-img" width="36"
+                                     class="img-circle"><span class="text-white font-medium">Admin</span>
+                            </a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               href="basic-table.html" aria-expanded="false">
+                                <i class="fa fa-table"
+                                   aria-hidden="true"></i><span class="hide-menu">Inventario</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title text-uppercase font-medium font-14">Inventario</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Añadir Producto</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>NOMBRE DEL PRODUCTO</label>
+                            <input id="txtNombre_Producto" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>CANTIDAD DE LA UNIDAD</label>
+                            <input id="txtCantidad_Existente" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>CANTIDAD EXISTENTE</label>
+                            <input id="txtCantida_Por_Producto" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>PRECIO</label>
+                            <input id="txtPrecio" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>MARCA</label>
+                            <input id="txtMarca" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button id="btnAñadirProducto" onclick="AñadirProducto();" class="btn btn-block btn-dark">Añadir Producto</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>PRODUCTOS</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tblItems" class="table table-bordered" border="1">
+                            <thead>
+                                <tr>
+                                    <th>ID PRODUCTO</th>
+                                    <th>NOMBRE PRODUCTO</th>
+                                    <th>CANTIDAD EN STOCK</th>
+                                    <th>CANTIDAD EXISTENTE</th>
+                                    <th>PRECIO</th>
+                                    <th>MARCA</th>
+                                    <th>MODIFICAR</th>
+                                    <th>ELIMINAR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="plugins/bower_components/popper.js/dist/umd/popper.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <script src="../Scripts/bootbox.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script>
+
+        var init = function () {
+            MostrarProductos();
+        }
+
+        init();
+
+        function MostrarProductos() {
+            sendRequest('MostrarProductos', {},
+                function (response) {
+                    var tableBody = $('#tblItems tbody');
+                    tableBody.html('');
+                    for (var Producto in response) {
+                        tableBody.append('<tr>' +
+                            '<td>' + response[Producto].Id + '</td>' +
+                            '<td>' + response[Producto].Nombre_Producto + '</td>' +
+                            '<td>' + response[Producto].Cantidad_Por_Unidad + '</td>' +
+                            '<td>' + response[Producto].Cantidad_Existente + '</td>' +
+                            '<td>' + response[Producto].Precio + '</td>' +
+                            '<td>' + response[Producto].Marca + '</td>' +
+
+                            '<td><button class="btn btn-primary" onclick="actualizar_producto(this);">Actualizar Informacion</button></td>' +
+                            '<td><button class="btn btn-danger" onclick="borrarproducto(' + response[Producto].Id + ');">Eliminar</button></td>');
+                    }
+
+                });
+            $('#tblItems').DataTable();
+        }
+
+        function AñadirProducto() {
+            var NombreProducto = $('#txtNombre_Producto').val();
+            var CantidadExistente = $('#txtCantidad_Existente').val();
+            var CantidadProducto = $('#txtCantida_Por_Producto').val();
+            var PrecioProducto = $('#txtPrecio').val();
+            var MarcaProducto = $('#txtMarca').val();
+            sendRequest('AñadirProducto',
+                {
+                    "nombreproducto": NombreProducto, "cantidadexistente": CantidadExistente, "cantidadproducto": CantidadProducto, "precioproducto": PrecioProducto, "marcaproducto": MarcaProducto
+                },
+                function (response) {
+                    if (response[0] == 'OK') {
+                        MostrarProductos();
+                        bootbox.alert('El producto ' + nombreproducto + ' a sido añadido con exito. ');
+                    }
+                    else {
+
+                        bootbox.alert('Error! ' + response[0]);
+                    }
+
+                }
+            )
+        }
+
+        function borrarproducto(Id) {
+            bootbox.confirm({
+                title: "Eliminar Producto?",
+                message: "Esta seguro de eliminar este producto?",
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancelar'
+                    },
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Eliminar'
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        sendRequest('EliminarProducto', { "IdProduct": Id },
+                            function (response) {
+                                if (response[0] == 'OK') {
+                                    MostrarProductos();
+                                    bootbox.alert('El producto se elimino correctamente!');
+                                }
+                                else {
+                                    bootbox.alert('Error! ' + response[0]);
+                                }
+                            });
+                    }
+                }
+            });
+
+        }
+
+        function actualizar_producto(itemControl) {
+            var IdProducto = $(itemControl).parent().parent().find('td').eq(0).html();
+            var nombreproducto = $(itemControl).parent().parent().find('td').eq(1).html();
+            var cantidadexistente = $(itemControl).parent().parent().find('td').eq(2).html();
+            var cantidadproducto = $(itemControl).parent().parent().find('td').eq(3).html();
+            var precioproducto = $(itemControl).parent().parent().find('td').eq(4).html();
+            var marcaproducto = $(itemControl).parent().parent().find('td').eq(5).html();
+            bootbox.dialog({
+                title: "ACTUALIZAR_PRODUCTO",
+                message: '<div class="row">  ' +
+                    '<div class="col-md-12"> ' +
+                         '<div class="form-group"> ' +
+                             '<label class="col-md-3 control-label" for="Nombre Del Producto">Item Name:</label> ' +
+                                '<div class="col-md-9"> ' +
+                    '<input type="text" id="txnombreproducto" class="form-control" placeholder="Nombre Del Producto" value="' + nombreproducto + '" />' +
+                                '</div>' +
+                            '</div>' +
+                         '</div>' +
+                         '<div class="form-group"> ' +
+                            '<label class="col-md-3 control-label" for="txCantidad_Existente">Cantidad En Venta del Producto:</label> ' +
+                                '<div class="col-md-9"> ' +
+                    '<input type="text" id="txcantidadexistente" class="form-control" placeholder="Cantidad En Venta del Producto" value="' + cantidadexistente + '" />' +
+                                '</div>' +
+                            '</div>' +
+                         '</div>' +
+                         '<div class="form-group"> ' +
+                            '<label class="col-md-3 control-label" for="txCantida_Por_Producto">Cantidad en Inventario del Producto:</label> ' +
+                                '<div class="col-md-9"> ' +
+                    '<input type="text" id="txcantidadproducto" class="form-control" placeholder="Cantidad en Inventario del Producto" value="' + cantidadproducto + '" />' +
+                                '</div>' +
+                            '</div>' +
+                         '</div>' +
+                         '<div class="form-group"> ' +
+                            '<label class="col-md-3 control-label" for="txPrecio">Precio Del Producto:</label> ' +
+                                '<div class="col-md-9"> ' +
+                    '<input type="text" id="txprecioproducto" class="form-control" placeholder="Precio Del Producto" value="' + precioproducto + '" />' +
+                                '</div>' +
+                            '</div>' +
+                         '</div>' +
+                         '<div class="form-group"> ' +
+                            '<label class="col-md-3 control-label" for="txMarca">Marca Del Producto:</label> ' +
+                                '<div class="col-md-9"> ' +
+                    '<input type="text" id="txmarcaproducto" class="form-control" placeholder="Marca Del Producto" value="' + marcaproducto + '" />' +
+                                '</div>' +
+                            '</div>' +
+                         '</div>' +
+                    '</div>',
+                buttons: {
+                    Cancel: {
+                        label: "CANCELAR",
+                        className: "btn-danger",
+                        callback: function () {
+
+                        }
+                    },
+                    Update: {
+                        label: "ACTUALIZAR",
+                        className: "btn-success",
+                        callback: function () {
+                            var newNombreProducto = $('#txnombreproducto').val();
+                            var newCantidadExistente = $('#txcantidadexistente').val();
+                            var newCantidadProducto = $('#txcantidadproducto').val();
+                            var newPrecio = $('#txprecioproducto').val();
+                            var newMarca = $('#txmarcaproducto').val();
+                            sendRequest('AñadirProducto',
+                                {
+                                    "IdProducto": IdProducto, "nombreproducto": newNombreProducto, "cantidadexistente": newCantidadExistente,
+                                    "cantidadproducto": newCantidadProducto, "precioproducto": newPrecio, "marcaproducto": newMarca
+                                },
+                                function (response) {
+                                    if (response[0] == 'OK') {
+                                        MostrarProductos();
+                                        bootbox.alert('El producto se actualizo correctamente.');
+                                    }
+                                    else {
+                                        bootbox.aler('Ocurrio un error. ' + response[0]);
+                                        actualizar_producto(itemControl);
+                                    }
+                                }
+                            )
+
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+
+        function sendRequest(webMethod, JSONToSend, callback) {
+            try {
+                var xhttp = null;
+                if (window.XMLHttpRequest) {
+                    xhttp = new XMLHttpRequest();
+                } else {
+                    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            callback(JSON.parse(xhttp.responseText).d);
+                        }
+                        else {
+                            callback("Error de Red!");
+                        }
+                    }
+                };
+                xhttp.open("POST", "/Inventory/WebService.asmx/" + webMethod, true);
+                xhttp.setRequestHeader("content-type", "application/json");
+                xhttp.setRequestHeader("Accept", "application/json");
+                xhttp.send(JSON.stringify(JSONToSend));
+            } catch (e) {
+                alert('Error Message: ' + e);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

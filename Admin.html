@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Inventory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Añadir Producto</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>NOMBRE DEL PRODUCTO</label>
+                    <input id="txtNombre_Producto" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>CANTIDAD DE LA UNIDAD</label>
+                    <input id="txtCantidad_Existente" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>CANTIDAD EXISTENTE</label>
+                    <input id="txtCantida_Por_Producto" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>PRECIO</label>
+                    <input id="txtPrecio" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>MARCA</label>
+                    <input id="txtMarca" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button id="btnAddItem" onclick="AddItem();" class="btn btn-block btn-dark">Añadir Item</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>PRODUCTOS</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tblItems" class="table table-bordered" border="1">
+                    <thead>
+                        <tr>
+                            <th>ID PRODUCTO</th>
+                            <th>NOMBRE PRODUCTO</th>
+                            <th>CANTIDAD EN STOCK</th>
+                            <th>CANTIDAD EXISTENTE</th>
+                            <th>PRECIO</th>
+                            <th>MARCA</th>
+                            <th>ELIMINAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/popper.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootbox.js"></script>
+
+    <script>
+
+        var init = function () {
+            MostrarProductos();
+        }
+
+        init();
+
+        function MostrarProductos() {
+            sendRequest('MostrarProductos', {}, function (response) {
+                var tableBody = $('#tblItems tbody');
+                tableBody.html('');
+                for (var Producto in response) {
+                    tableBody.append('<tr>' +
+                        '<td>' + response[Producto].IdProduct + '</td>' +
+                        '<td>' + response[Producto].Nombre_Producto + '</td>' +
+                        '<td>' + response[Producto].Cantidad_Existente + '</td>' +
+                        '<td>' + response[Producto].Cantida_Por_Producto + '</td>' +
+                        '<td>' + response[Producto].Precio + '</td>' +
+                        '<td>' + response[Producto].Marca + '</td>' +
+
+                        '<td><button class="btn btn-danger" onclick="eliminarproducto(' + response[Producto].IdProduct + ');">Remove</button></td>' +
+                        '</tr>');
+                }
+            });
+        }
+        function eliminarproducto(IdProduct) {
+            bootbox.confirm({
+                title: "Eliminar Producto? ",
+                message: "Estas seguro de eliminar este producto?",
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancelar'
+                    },
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Confirmar'
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        sendRequest('ELIMINAR_PRODUCTO', { "IdProduct": IdProduct },
+                            function (response) {
+                                if (response[0] == 'OK') {
+                                    MostrarProductos();
+                                    bootbox.alert('El producto a sido eliminado!');
+                                }
+                                else {
+                                    bootbox.alert('Error! ' + response[0]);
+                                }
+                            });
+                    }
+                }
+            });
+        }
+
+        function sendRequest(webMethod, JSONToSend, callback) {
+            try {
+                var xhttp = null;
+                if (window.XMLHttpRequest) {
+                    xhttp = new XMLHttpRequest();
+                } else {
+                    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            callback(JSON.parse(xhttp.responseText).d);
+                        }
+                        else {
+                            callback("Error de Red!");
+                        }
+                    }
+                };
+                xhttp.open("POST", "/Inventory/WebService.asmx/" + webMethod, true);
+                xhttp.setRequestHeader("content-type", "application/json");
+                xhttp.setRequestHeader("Accept", "application/json");
+                xhttp.send(JSON.stringify(JSONToSend));
+            } catch (e) {
+                alert('Error Message: ' + e);
+            }
+        }
+    </script>
+</body >
+</html >
